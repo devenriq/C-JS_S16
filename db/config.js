@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+mongoose.set("strictQuery", false);
 
-export const dbConnection = async () => {
+const dbConnection = async () => {
   try {
     await mongoose.connect(`mongodb://localhost:27017/Banco`);
 
@@ -9,4 +10,8 @@ export const dbConnection = async () => {
     console.error(error);
     throw new Error("Error al iniciar la base de datos");
   }
+};
+
+module.exports = {
+  dbConnection,
 };
