@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 mongoose.set("strictQuery", false);
 
 const dbConnection = async () => {
@@ -12,6 +12,4 @@ const dbConnection = async () => {
   }
 };
 
-module.exports = {
-  dbConnection,
-};
+export { dbConnection };
