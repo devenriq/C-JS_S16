@@ -1,9 +1,8 @@
-const { Schema, model } = requiere("mongoose");
+const { Schema, model } = require("mongoose");
 
-const ClienteSchema = new Schema({
+const ClientesSchema = new Schema({
   nomb_cliente: {
     type: String,
-    required: [true, "El nombre es obligatorio"],
   },
   telefono: {
     type: Number,
@@ -25,4 +24,4 @@ const ClienteSchema = new Schema({
   },
 });
 
-export default model("Cliente", ClienteSchema);
+module.exports = model("Cliente", ClientesSchema);
