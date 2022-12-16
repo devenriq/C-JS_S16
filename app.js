@@ -1,16 +1,25 @@
 const express = require("express");
 
 const { dbConnection } = require("./db/config");
-const Cliente = require("./models/cliente.model");
+const Producto = require("./models/productos.model");
 
 const app = express();
 const port = 3001;
 
 dbConnection();
 
+app.use(express.json());
+
 app.get("/", async (req, res) => {
-  const usuarios = await Cliente.find();
-  res.json(usuarios);
+  const productos = await Producto.find();
+  res.json(productos);
+});
+
+app.post("/", async (req, res) => {
+  const { sku, qty, name, price } = req.value;
+  const producto = await new Producto({ sku, qty, name, price });
+  await producto.save();
+  res.json(producto);
 });
 
 app.listen(port, () => {

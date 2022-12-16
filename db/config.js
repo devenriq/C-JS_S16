@@ -3,7 +3,7 @@ mongoose.set("strictQuery", false);
 
 const dbConnection = async () => {
   try {
-    await mongoose.connect(`mongodb://localhost:27017/Banco`);
+    await mongoose.connect(`mongodb://localhost:27017/ventas`);
 
     console.log("Base de datos online");
   } catch (error) {
