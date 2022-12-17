@@ -18,7 +18,7 @@ export class Server {
   }
 
   routes() {
-    this.app.use("/api", routerProducto);
+    this.app.use("/api/producto", routerProducto);
   }
 
   listen() {
